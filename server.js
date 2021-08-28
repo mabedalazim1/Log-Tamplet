@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const db = require('./app/models')
+const Role = db.role;
 
 const app = express()
 
@@ -20,14 +21,41 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 db.sequelize.sync({ force: true }).then(() => {
   console.log('Drop and re-sync db.')
+  initial();
 })
+function initial () {
+  Role.create({
+    id: 1,
+    name: 'admin'
+  })
+  Role.create({
+    id: 2,
+    name: 'teacher'
+  })
+  Role.create({
+    id: 3,
+    name: 'student'
+  })
+  Role.create({
+    id: 4,
+    name: 'moderator'
+  })
+  Role.create({
+    id: 5,
+    name: 'user'
+  })
+}
+
 
 // simple route
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to bezkoder application.' })
 })
+
 // Routers
 require('./app/routes/turorial.routes')(app)
+require('./app/routes/auth.routes')(app);
+require('./app/routes/user.routes')(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080
