@@ -13,15 +13,15 @@ const testAPIRouter = require("./routes/testAPI");
 const app = express();
 // Cros
 const corsOptions = {
-  origin: 'http://localhost:9000'
+  origin: 'http://localhost:3000'
 }
 
 app.use(cors(corsOptions))
 
 // Connect DB
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
   console.log('Drop and re-sync db.')
-  initial();
+  // initial();
 })
 function initial () {
   Role.create({
