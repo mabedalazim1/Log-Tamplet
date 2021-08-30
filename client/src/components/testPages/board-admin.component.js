@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import UserService from "../../services/user.service";
 
-export default class BoardAdmin extends Component {
+class BoardAdmin extends Component {
   constructor(props) {
     super(props);
 
@@ -43,3 +43,6 @@ export default class BoardAdmin extends Component {
     );
   }
 }
+
+
+export default BoardAdmin

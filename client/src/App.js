@@ -10,7 +10,7 @@ import Profile from "./components/login/profile.component";
 import BoardUser from "./components/testPages/board-user.component";
 import BoardModerator from "./components/testPages/board-moderator.component";
 import BoardAdmin from "./components/testPages/board-admin.component";
-
+import NotFoundPage from "./components/notFoundPage/notFoundPage";
 
 class App extends Component {
 constructor(props) {
@@ -30,11 +30,9 @@ callAPI() {
       .then(res => this.setState({ apiResponse: res }));
 }
 
-componentWillMount() {
-  this.callAPI();
-}
   
-componentDidMount() {
+  componentDidMount() {
+    this.callAPI();
   const user = AuthService.getCurrentUser();
 
   if (user) {
@@ -56,6 +54,7 @@ render() {
   return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <div className="container">
         <Link to={"/"} className="navbar-brand">
           bezKoder
         </Link>
@@ -118,7 +117,8 @@ render() {
               </Link>
             </li>
           </div>
-        )}
+          ) }
+          </div>
       </nav>
       <p className="App-intro">;{this.state.apiResponse}</p>
       <div className="container mt-3">
@@ -129,7 +129,8 @@ render() {
           <Route exact path="/profile" component={Profile} />
           <Route path="/user" component={BoardUser} />
           <Route path="/mod" component={BoardModerator} />
-          <Route path="/admin" component={BoardAdmin} />
+          <Route path="/admin" component={ BoardAdmin } />
+          <Route path="*" component={NotFoundPage} />
         </Switch>
       </div>
     </div>

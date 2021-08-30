@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import AuthService from "../../services/auth.service";
 
-export default class Profile extends Component {
+ class Profile extends Component {
   constructor(props) {
     super(props);
 
@@ -12,6 +13,18 @@ export default class Profile extends Component {
 
   render() {
     const { currentUser } = this.state;
+    if (!currentUser) {
+      return (
+        <div>
+          <h1>Pleas Singin or Go to Home page </h1>
+         
+          <Link to={"/home"} className="nav-link">
+              Home
+            </Link>
+         
+        </div>
+      )
+    }else{
 
     return (
       <div className="container">
@@ -42,3 +55,5 @@ export default class Profile extends Component {
     );
   }
 }
+}
+export default Profile
