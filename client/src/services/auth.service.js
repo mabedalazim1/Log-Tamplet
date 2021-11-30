@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:9000/api/auth/";
+const API_URL = "http://elkwtherps-001-site3.itempurl.com/api/auth/";
 
 class AuthService {
   login(username, password) {
@@ -22,10 +22,9 @@ class AuthService {
     localStorage.removeItem("user");
   }
 
-  register(username, email, password) {
+  register(username, password) {
     return axios.post(API_URL + "signup", {
       username,
-      email,
       password
     });
   }

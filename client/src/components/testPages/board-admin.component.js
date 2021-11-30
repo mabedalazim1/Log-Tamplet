@@ -32,6 +32,7 @@ class BoardAdmin extends Component {
   }
 
   render() {
+    console.log('con',this.state.content)
     return (
       <div className="container">
         <header className="jumbotron">

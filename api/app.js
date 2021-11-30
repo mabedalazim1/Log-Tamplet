@@ -19,9 +19,9 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 // Connect DB
-db.sequelize.sync().then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   console.log('Drop and re-sync db.')
-  // initial();
+   //initial();
 })
 function initial () {
   Role.create({
@@ -61,7 +61,7 @@ require('./routes/turorial.routes')(app)
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 
-app.use("/testAPI", testAPIRouter);
+app.use("/api", testAPIRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

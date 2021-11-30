@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
   dbConfig.user,
   dbConfig.password,
   {
-    host: 'SQL5105.site4now.net',
+    host: 'localhost',
     dialect: 'mssql'
   }
 )

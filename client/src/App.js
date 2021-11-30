@@ -25,7 +25,8 @@ constructor(props) {
   };
 }
 callAPI() {
-  fetch("http://localhost:9000/testAPI")
+fetch('http://elkwtherps-001-site3.itempurl.com/api/test')
+
       .then(res => res.text())
       .then(res => this.setState({ apiResponse: res }));
 }
@@ -120,7 +121,7 @@ render() {
           ) }
           </div>
       </nav>
-      <p className="App-intro">;{this.state.apiResponse}</p>
+      <p className="App-intro"> {this.state.apiResponse}</p>
       <div className="container mt-3">
         <Switch>
           <Route exact path={["/", "/home"]} component={Home} />

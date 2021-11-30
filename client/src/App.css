@@ -3,6 +3,12 @@ label {
   margin-top: 10px;
 }
 
+.App-intro{
+  margin: 20px;
+  color: blue;
+  font-size: 20px;
+  text-align: center;
+}
 .card-container.card {
   max-width: 350px !important;
   padding: 40px 40px;

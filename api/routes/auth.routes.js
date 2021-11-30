@@ -18,6 +18,6 @@ module.exports = function(app) {
     ],
     controller.signup
   );
-
+    app.get('/api/auth/signup',(req,res)=>{res.send('Ok Mohamed')})
   app.post("/api/auth/signin", controller.signin);
 };

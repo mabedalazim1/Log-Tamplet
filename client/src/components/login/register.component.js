@@ -94,7 +94,6 @@ class Register extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.register(
         this.state.username,
-        this.state.email,
         this.state.password
       ).then(
         response => {
